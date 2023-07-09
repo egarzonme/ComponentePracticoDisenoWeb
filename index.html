@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>text box</title>
+  <style> 
+    .carousel {
+      width: 75%;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      background-color: rgba(39, 40, 61, 1);
+    }
+    
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .carousel .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .carousel .slide.active {
+      opacity: 1;
+    }
+    
+    .carousel .navigation {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+    
+    .carousel .navigation button {
+      background-color: white;
+      border: none;
+      color: black;
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+    .container2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: rgba(39, 40, 61, 1);
+    }
+
+    .image {
+      flex: 1;
+      max-width: 50%;
+    }    
+    
+    .image2 {
+      flex: 1;
+      max-width: 40%;
+    }
+    .image3 {
+      flex: 1;
+      max-width: 70%;
+    }
+
+
+    .text {
+      flex: 1;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .menuFondo {
+      background-color: #f2f2f2;
+      color: #888;
+      height: 20%;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .menu ul li {
+      margin-right: 20px;
+    }
+
+    .menu ul li:last-child {
+      margin-right: 0;
+    }
+
+    .menu ul li a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+    }
+    .textcontenido {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+    color: white;
+
+    }
+
+    .footerfinal {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    }
+ 
+  </style>
+
+</head>
+<body>
+  <div>
+    <div class="menuFondo">
+        <nav class="menu">
+          <ul>
+            <li><a href="#section1">INICIO</a></li>
+            <li><a href="#section2">TEMA</a></li>
+            <li><a href="#section5">COMPONENTES</a></li>
+            <li><a href="#section3">EJEMPLOS</a></li>
+            <li><a href="#section4">MOCKUP</a></li>
+          </ul>
+        </nav>
+      </div>
+  </div>
+  <div id="section1" class="container2">
+    
+    <div class="carousel">
+        <h1 class="textcontenido">COMPONENTE PRACTICO</h1>
+        <h1 class="textcontenido">EDWIN GARZON UNAD 2023</h1>
+        <h4 class="textcontenido"> DISEÑO SITIOS WEB</h4>
+        <div class="slide active">
+          <img src="https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Imagen 1">
+        </div>
+        <div class="slide">
+          <img src="https://images.pexels.com/photos/6424586/pexels-photo-6424586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Imagen 2">
+        </div>
+        <div class="slide">
+          <img src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Imagen 3">
+        </div>
+        <div class="navigation">
+          <button onclick="changeSlide(0)">1</button>
+          <button onclick="changeSlide(1)">2</button>
+          <button onclick="changeSlide(2)">3</button>
+        </div>
+      </div>
+    
+      <script>
+        var slides = document.querySelectorAll('.slide');
+        var buttons = document.querySelectorAll('.navigation button');
+    
+        function changeSlide(index) {
+          slides.forEach(function(slide) {
+            slide.classList.remove('active');
+          });
+    
+          buttons.forEach(function(button) {
+            button.classList.remove('active');
+          });
+    
+          slides[index].classList.add('active');
+          buttons[index].classList.add('active');
+        }
+      </script>  </div>
+  <div id="section2" class="container">
+    <img class="image2" src="inicio.jpg">
+    <div class="text">
+      <h1>BOX MODEL</h1>
+      <p> es un concepto fundamental en CSS (Cascading Style Sheets) que describe cómo se calculan y aplican las dimensiones y las propiedades de un elemento HTML en una página web.</p>
+    </div>
+  </div>
+  <div id="section5" class="container2">
+    
+    <div class="textcontenido">
+      <h1>COMPONENTES</h1>
+      <li>
+        Contenido (Content): Es el área donde se muestra el contenido real del elemento, como texto, imágenes o videos. El tamaño del contenido se especifica mediante las propiedades width (ancho) y height (alto).
+      </li>
+      <li>
+        Relleno (Padding): Es el espacio transparente que se encuentra entre el contenido y los bordes de la caja. El relleno se puede especificar mediante las propiedades padding-top, padding-right, padding-bottom y padding-left. Estas propiedades controlan el espacio adicional dentro de la caja alrededor del contenido.
+      </li>
+      <li>
+        Borde (Border): Es una línea que rodea el contenido y el relleno. El borde se puede especificar mediante la propiedad border, que incluye la anchura (border-width), el estilo (border-style) y el color (border-color). Los valores comunes para el estilo del borde incluyen solid (sólido), dotted (punteado) y dashed (discontinuo).
+      </li>
+      <li>
+        Margen (Margin): Es el espacio transparente que se encuentra fuera del borde y separa un elemento de otros elementos adyacentes. Los márgenes se pueden especificar mediante las propiedades margin-top, margin-right, margin-bottom y margin-left. Estas propiedades controlan el espacio entre las cajas de los elementos.
+      </li>
+    </div>
+    <img class="image" src="componente.jpg">
+  </div>
+  <div id="section3" class="container">
+    <div class="text">
+        <h1>EJEMPLOS</h1>
+        <img src="https://lh6.googleusercontent.com/-CxPhqxXMLKM/UjHz7JtYK4I/AAAAAAAAASw/xloo8hyxT0I/s558/CU01028D_2.png" alt="">
+        <img src="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model/alternate-box-model.png" alt="">
+       
+    </div>
+  </div>
+  <div id="section4" class="container2">
+      
+        <img class="image3" src="mockup2.png" alt="">
+  </div>
+</body>
+<footer class="footerfinal">
+    <p>&copy; Astronauticos 2023. Todos los derechos reservados.</p>
+  </footer>
+  
+</html>

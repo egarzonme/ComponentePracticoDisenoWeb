@@ -1,0 +1,25 @@
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.contenido {
+    margin-top: 20px;
+}
+
+img.imagen {
+    width: 50px;
+}
+
+.menubg {
+    background-color: blue;
+    opacity: 70%;
+    width: 100%;
+    height: auto;
+}
