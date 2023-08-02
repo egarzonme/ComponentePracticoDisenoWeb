@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario con Preguntas de Opción Múltiple</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="radio"] {
+            margin-right: 5px;
+        }
+        .form-group .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container ">
+        <h2 class="text-center">Formulario de Preguntas de Opción Múltiple</h2>
+        <form id="myForm">
+            <div class="form-group">
+                <label> En CSS en general, hay dos tipos de cajas</label>
+                <input type="radio" name="question1" value="A" required> A) Cajas en bloque y cajas en nube
+                <input type="radio" name="question1" value="B"> B) Cajas optimizadoras y cajas de mejoras
+                <input type="radio" name="question1" value="C"> C) Cajas en bloque y cajas en línea
+                <input type="radio" name="question1" value="D"> D) Cajas en línea y cajas optimizadoras
+            </div>
+            <div class="form-group">
+                <label>¿Qué es el modelo de cajas CSS?</label>
+                <input type="radio" name="question2" value="A" required> A) El modelo define cómo funcionan juntas las diferentes partes de una caja
+                <input type="radio" name="question2" value="B"> B) El modelo aclara dudas de las cajas de fuera
+                <input type="radio" name="question2" value="C"> C) CCS es el modelo definido por httml
+                <input type="radio" name="question2" value="D"> D) El modelo enseña el manejo de cada caja
+            </div>
+            <div class="form-group">
+                <label>Que es el contenido de la caja?</label>
+                <input type="radio" name="question3" value="A" required> A) El relleno es espacio en blanco alrededor del contenido
+                <input type="radio" name="question3" value="B"> B) El área donde se muestra el contenido, cuyo tamaño puede cambiarse utilizando propiedades como width y height 
+                <input type="radio" name="question3" value="C"> C) Envuelve el contenido, el relleno y el borde como espacio en blanco entre la caja y otros elementos
+                <input type="radio" name="question3" value="D"> D) Es la caja que envuelve el contenido y el de relleno.
+            </div>
+            
+            <div class="form-group">
+                <label>Que es el modelo de cajas estándar?</label>
+                <input type="radio" name="question4" value="A" required> A) Es el relleno es espacio en blanco alrededor del contenido; es posible controlar su tamaño usando la propiedad padding y otras propiedades relacionadas.
+                <input type="radio" name="question4" value="B"> B) Es cuando estableces los atributos width y height para una caja, defines el ancho y el alto del contenido de la caja
+                <input type="radio" name="question4" value="C"> C) Las cajas también tienen un tipo de visualización interna, que determina cómo se disponen los elementos dentro de esa caja.
+                <input type="radio" name="question4" value="D"> D) Si utilizas el modelo de cajas estándar, el tamaño del borde se añade a los elementos
+            </div>
+
+            <div class="form-group">
+                <label>Que es un espacio invisible que hay alrededor de la caja?</label>
+                <input type="radio" name="question5" value="A" required> A) Borde
+                <input type="radio" name="question5" value="B"> B) Margen
+                <input type="radio" name="question5" value="C"> C) Contenido
+                <input type="radio" name="question5" value="D"> D) Imagen
+            </div>
+            <button type="button" onclick="validateForm()" style="background-color: red; align-items: center;">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const form = document.getElementById('myForm');
+            const question1Answer = form.question1.value;
+            const question2Answer = form.question2.value;
+            const question3Answer = form.question3.value;
+            const question4Answer = form.question4.value;
+            const question5Answer = form.question5.value;
+
+            const correctAnswers = {
+                question1: 'C',
+                question2: 'A',
+                question3: 'B',
+                question4: 'B',
+                question5: 'B'
+            };
+
+            let isValid = true;
+
+            if (question1Answer !== correctAnswers.question1) {
+                isValid = false;
+                showErrorMessage('Pregunta 1', form.querySelector('[name="question1"]'));
+            } else {
+                hideErrorMessage(form.querySelector('[name="question1"]'));
+            }
+
+    
+            if (question2Answer !== correctAnswers.question2) {
+                isValid = false;
+                showErrorMessage('Pregunta 2', form.querySelector('[name="question2"]'));
+            } else {
+                hideErrorMessage(form.querySelector('[name="question2"]'));
+            }
+
+            if (question3Answer !== correctAnswers.question3) {
+                isValid = false;
+                showErrorMessage('Pregunta 3', form.querySelector('[name="question3"]'));
+            } else {
+                hideErrorMessage(form.querySelector('[name="question3"]'));
+            }
+
+            if (question4Answer !== correctAnswers.question4) {
+                isValid = false;
+                showErrorMessage('Pregunta 4', form.querySelector('[name="question4"]'));
+            } else {
+                hideErrorMessage(form.querySelector('[name="question4"]'));
+            }
+            if (question5Answer !== correctAnswers.question5) {
+                isValid = false;
+                showErrorMessage('Pregunta 5', form.querySelector('[name="question5"]'));
+            } else {
+                hideErrorMessage(form.querySelector('[name="question5"]'));
+            }
+
+            if (isValid) {
+                alert('¡Respuestas correctas! El formulario ha sido guardado.');
+                form.reset();
+            }
+        }
+
+        function showErrorMessage(question, radioInput) {
+            const errorMessage = radioInput.parentNode.nextElementSibling;
+            if (!errorMessage || !errorMessage.classList.contains('error-message')) {
+                const errorMessageElement = document.createElement('span');
+                errorMessageElement.classList.add('error-message');
+                errorMessageElement.textContent = `Por favor, selecciona una respuesta para ${question}.`;
+                radioInput.parentNode.parentNode.appendChild(errorMessageElement);
+            }
+        }
+
+        function hideErrorMessage(radioInput) {
+            const errorMessage = radioInput.parentNode.nextElementSibling;
+            if (errorMessage && errorMessage.classList.contains('error-message')) {
+                errorMessage.remove();
+            }
+        }
+    </script>
+</body>
+</html>
